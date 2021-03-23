@@ -1,7 +1,7 @@
 import random
 
 def guessing_game():
-    r = random.randint(1,101)
+    r = random.randint(1,100)
     g = guess()
     while g != r:
         if g < r:
