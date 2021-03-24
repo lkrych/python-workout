@@ -1,14 +1,16 @@
 import random
 
 def guessing_game():
+    #randint is inclusive
     r = random.randint(1,100)
-    g = guess()
-    while g != r:
+    while True:
+        g = guess()
+        if g == r:
+            break
         if g < r:
             print("too low")
         elif g > r: 
             print("too high")
-        g = guess()
         continue
     print("just right")
 
