@@ -1,15 +1,20 @@
 
 def run_timing():
-    run_times = []
+    number_of_runs = 0
+    total_time = 0
+
     while True:
+        one_run = input("Enter 10km run time: ")
+        if not one_run:
+            break
+
         try:
-            time = float(input("Enter 10km run time: "))
-            run_times.append(time)
+            number_of_runs += 1
+            total_time += float(one_run)
         except ValueError as _:
             break
-    
     try:
-        print(f'Average of {sum(run_times)/len(run_times)}, over {len(run_times)} runs')
+        print(f'Average of {(total_time/number_of_runs):.2f}, over {number_of_runs} runs')
     except ZeroDivisionError as _:
         print("There was an error with your input")
 
