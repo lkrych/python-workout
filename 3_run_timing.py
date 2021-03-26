@@ -1,3 +1,4 @@
+from decimal import Decimal
 
 def run_timing():
     number_of_runs = 0
@@ -18,4 +19,24 @@ def run_timing():
     except ZeroDivisionError as _:
         print("There was an error with your input")
 
-run_timing()
+def decimal_input():
+    user_input = []
+    while True:
+        user_in = input("Enter 10km run time: ")
+
+        if not user_in:
+            break
+
+        try:
+            user_input.append(
+                Decimal(user_in)
+            )
+        except ValueError as _:
+            print("There was an error with your input")
+            exit(1)
+    try:
+        print(f'Total time is {sum(user_input)}')
+    except ZeroDivisionError as _:
+        print("There was an error with your input")
+
+decimal_input()
