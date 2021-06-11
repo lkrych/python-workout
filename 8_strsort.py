@@ -1,6 +1,4 @@
 def strsort(s):
-    arr = s.split()
-    arr.sort()
-    return "".join(arr)
+    return "".join(sorted(s))
 
 print(strsort("cba"))
