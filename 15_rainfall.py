@@ -5,10 +5,7 @@ def get_rainfall():
         if not city:
             break
         rainfall = int(input("Rainfall (mm): ").strip())
-        if city in rainfall_dict:
-            rainfall_dict[city] = rainfall_dict[city] + rainfall
-        else:
-            rainfall_dict[city] = rainfall
+        rainfall_dict[city] = rainfall_dict.get(city, 0) + rainfall
 
     for k,v in rainfall_dict.items():
         print(f'{k}: {v}')
