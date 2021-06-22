@@ -4,9 +4,12 @@ def get_rainfall():
         city = input("City Name: ").strip()
         if not city:
             break
-        rainfall = int(input("Rainfall (mm): ").strip())
-        rainfall_dict[city] = rainfall_dict.get(city, 0) + rainfall
-
+        try:
+            rainfall = int(input("Rainfall (mm): ").strip())
+            rainfall_dict[city] = rainfall_dict.get(city, 0) + rainfall
+        except:
+            print("You did not enter a valid integer")
+            continue
     for k,v in rainfall_dict.items():
         print(f'{k}: {v}')
 
