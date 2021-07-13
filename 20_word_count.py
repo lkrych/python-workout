@@ -10,6 +10,10 @@ def word_count(filename):
         for line in f:
             lines += 1
             chars += len(line)
+            line = line.strip()
+            if len(line) < 1:
+                continue
+
             # word computation
             split_words = line.split(" ")
             words += len(split_words)
