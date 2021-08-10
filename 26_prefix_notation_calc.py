@@ -10,10 +10,18 @@ def calc(to_solve):
             '/': operator.truediv,
             '%': operator.mod,
             '**': operator.pow}
-    op, a, b =  to_solve.split()
-    a = int(a)
-    b = int(b)
+    split =  to_solve.split()
+    op = split[0]
+    args = list(map(lambda x: int(x), split[1:]))
 
-    return operations[op](a,b)
+    curr_val = operations[op](args[0], args[1])
+
+    for arg in args[2:]:
+        curr_val = operations[op](curr_val, arg)
+        
+
+    return curr_val
 
 print(calc('+ 3 4'))
+print(calc(' + 3 5 7'))
+print(calc(' / 100 5 5'))
